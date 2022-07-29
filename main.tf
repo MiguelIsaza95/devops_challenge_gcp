@@ -1,3 +1,11 @@
+##TF state
+terraform {
+ backend "gcs" {
+   bucket  = "tfstate-challenge"
+   prefix  = "terraform/state"
+ }
+}
+
 # Calling module
 
 module "devops_challenge" {

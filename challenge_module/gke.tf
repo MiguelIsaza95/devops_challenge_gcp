@@ -11,6 +11,10 @@ resource "google_container_cluster" "primary" {
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name
+
+  lifecycle {
+    ignore_changes = [master_auth, network]
+  }
 }
 
 # Separately Managed Node Pool
@@ -40,7 +44,7 @@ resource "google_container_node_pool" "primary_nodes" {
 
 resource "null_resource" "name" {
   provisioner "local-exec" {
-      command = <<-EOT
+    command = <<-EOT
       gcloud container clusters get-credentials ${google_container_cluster.primary.name}  --region ${var.region}
       kubectl apply -f ${path.module}/kubernetes-dashboard-admin.rbac.yaml
       EOT

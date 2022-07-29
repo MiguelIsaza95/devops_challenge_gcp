@@ -14,7 +14,7 @@ resource "google_compute_firewall" "ssh" {
 resource "google_compute_firewall" "http" {
   name = "allow-http"
   allow {
-    ports    = ["8080"]
+    ports    = ["80", "8080", "5000"]
     protocol = "tcp"
   }
   direction     = "INGRESS"
