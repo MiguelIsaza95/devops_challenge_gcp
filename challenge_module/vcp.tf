@@ -23,7 +23,7 @@ resource "google_compute_subnetwork" "subnet_jenkins" {
 
 resource "google_compute_instance" "jenkins_instance" {
   name         = "jenkins-instance"
-  machine_type = "f1-micro"
+  machine_type = "e2-medium"
   zone         = "us-central1-c"
   boot_disk {
     initialize_params {

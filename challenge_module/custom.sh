@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Fix redhat issues with yum killed
-rm -f /var/lib/rpm/__db*
-rpm –-rebuilddb
-sudo yum clean all
-
 # Install ansible
 sudo yum install git -y
 sudo yum install -y yum-utils
