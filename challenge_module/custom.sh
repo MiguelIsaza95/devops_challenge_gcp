@@ -4,7 +4,8 @@
 sudo yum update -y
 sudo yum install -y git
 sudo yum install -y yum-utils
-sudo dnf install -y ansible-core
+sudo yum install -y epel-repo
+sudo dnf install -y ansible
 ansible --version
 
 # Configure environment for ansible local provision
@@ -13,3 +14,4 @@ cd devops_challenge_ansible
 
 # Run playbook
 ansible-playbook jenkins.yml
+sudo usermod -aG docker $USER

@@ -27,7 +27,7 @@ resource "google_compute_instance" "jenkins_instance" {
   zone         = "us-central1-c"
   boot_disk {
     initialize_params {
-      image = "projects/rhel-cloud/global/images/rhel-9-v20220719"
+      image = "projects/centos-cloud/global/images/centos-7-v20220719"
     }
   }
   metadata_startup_script = file("${path.module}/custom.sh")
