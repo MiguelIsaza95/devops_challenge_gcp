@@ -45,7 +45,7 @@ resource "google_container_node_pool" "primary_nodes" {
 resource "null_resource" "name" {
   provisioner "local-exec" {
     command = <<-EOT
-      gcloud container clusters get-credentials ${google_container_cluster.primary.name}  --region ${var.region}
+      gcloud container clusters get-credentials ${google_container_cluster.primary.name}  --region ${var.region} --project ${var.project_id}
       kubectl apply -f ${path.module}/kubernetes-dashboard-admin.rbac.yaml
       EOT
   }
